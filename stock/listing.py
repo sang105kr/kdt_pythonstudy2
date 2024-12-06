@@ -114,6 +114,27 @@ class KrxStockListing: # descriptive information
         return merged
 
 
-
-
-
+def StockListing(market: str, start=None, end=None) -> pd.DataFrame:
+    '''
+    read stock list of stock exchanges
+    * market: 'KRX', 'KOSPI', 'KOSDAQ', 'KONEX', 'KRX-MARCAP', 
+            'KRX-DESC', 'KOSPI-DESC', 'KOSDAQ-DESC', 'KONEX-DESC',
+            'KRX-DELISTING', 'KRX-ADMINISTRATIVE', 'KRX-MARCAP',
+            'NASDAQ', 'NYSE', 'AMEX', 'SSE', 'SZSE', 'HKEX', 'TSE', 'HOSE',
+            'S&P500',
+            'ETF/KR',
+    '''
+    market = market.upper()
+    if market in ['KRX', 'KOSPI', 'KOSDAQ', 'KONEX', 'KRX-MARCAP']:
+        return KrxMarcapListing(market).read()
+    elif market in ['KRX-DESC', 'KOSPI-DESC', 'KOSDAQ-DESC', 'KONEX-DESC']:
+        return KrxStockListing(market).read()
+    else :
+      pass
+        
+df = StockListing('KRX')
+print(df)
+# df2 = StockListing('KRX-DESC')
+# print(df2)
+  
+  
