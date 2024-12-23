@@ -15,7 +15,7 @@ plt.rc('font', family='Malgun Gothic')
 matplotlib.rcParams['axes.unicode_minus'] = False
 cnt, PNG, UNDERBAR = 0, '.png', '_'
 CHART_NAME = 'boxPlotExam'
-filename = './../data/tips.csv'
+filename = './../../data/tips.csv'
 ###############################################################################
 myframe = pd.read_csv(filename, encoding='utf-8', index_col=0)
 
